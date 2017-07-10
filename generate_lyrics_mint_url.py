@@ -4,7 +4,7 @@ from urllib.request import Request, urlopen
 
 
 name = 'main tera hero'
-def generate_az_url():
+def generate_lm_url():
     url = 'http://www.lyricsmint.com/?s='
     final_name = ''
     split = name.split(' ')
@@ -23,7 +23,7 @@ def generate_az_url():
     final_name = url + final_name
     return final_name
 
-final_url = generate_az_url()
+final_url = generate_lm_url()
 print(final_url)
 
 def scrape_lyricsmint_for_links(final_url):
