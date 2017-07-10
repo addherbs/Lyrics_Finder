@@ -59,8 +59,8 @@ def generate_song_names_from_url(links):
                 # print (split[5])
     # print(dict)
     for key,value in dict.items():
-        print(key)
-        print(value)
+        print('key: ' , key , 'value: ',value)
+        # print(value)
         print('-----------')
 
 
