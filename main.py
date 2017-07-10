@@ -1,4 +1,4 @@
-from flask import flask
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -6,5 +6,5 @@ app = Flask(__name__)
 def index():
     return 'Enter the song name to find the lyrics associated with it'
 
-if __name__ = '__main__'
+if __name__ == "__main__" :
     app.run()
