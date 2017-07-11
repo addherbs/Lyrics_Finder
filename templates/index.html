@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+
+    <h1>Welcome to Lyrics Finder</h1>
+
+    <form action="/" method="post">
+        <p> Enter a Song Name: </p> <input type="text" name="song">
+        <input type="submit">
+    </form>
+    <br><br>
+    Song Name Entered: {{ name }}   <br><br>
+
+    Search Results Are:
+
+    <table>
+        {% for names in list_of_song_names %}
+
+            <form action="/giveSongResult", method="POST" >
+            <tr>
+                <td>  <input type="submit" name="songname" value="{{ names }}">    </td>
+            </tr>
+            </form>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
