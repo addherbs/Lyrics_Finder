@@ -30,6 +30,7 @@ def showLyrics():
         print('key: ',key)
         link_value = result_dictionary[key]
         print(link_value)
+        # print (link_value)
 
         lyrics = scrape_lyrics(link_value)
         lyrics_array = []
