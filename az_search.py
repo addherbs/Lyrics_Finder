@@ -32,10 +32,14 @@ def changeInClass(final_url):
             break
         else:
             names = [names.text for names in each_row.find_all('b')]
-            # print(names)
+            print(names)
             link = each_row.find('a').get('href')
-            artist_name = names[1]
-            song_name = names[0]
+            if  len(names) == 1:
+                song_name = names[0]
+                artist_name = 'Unknown'
+            else:
+                artist_name = names[1]
+                song_name = names[0]
             entire_song_name = str (song_name + ' By Artist ' + artist_name)
             # print(each_row.find('a').get('href'))
             # print('song ', names[0])
@@ -50,28 +54,6 @@ def changeInClass(final_url):
     #     print('key: ' , k ,' ==>' , 'value: ', v)
 
 # changeInClass(final_url)
-
-
-def scrape_az_for_links(final_url):
-    source = urllib.request.urlopen (final_url).read ()
-    soup = BeautifulSoup (source, 'lxml')
-    list = []
-    table = soup.table
-    count = 0
-    for anc in table.find_all ('a'):
-
-        # print(anc)
-        for b in anc.find_all('b'):
-            print("b tags: ", b)
-        title = anc.text.lower ()
-        if (name.lower () == title):
-            list.append (anc.get ('href'))
-            print(anc.get('href'))
-        print('------------------')
-# print(table)
-    return list
-
-# az_search_result_links = scrape_az_for_links(final_url)
 
 # print('------------------')
 # print(az_search_result_links)
