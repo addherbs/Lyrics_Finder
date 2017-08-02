@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from az_scrape_lyrics import scrape_lyrics
 from az_search import generate_az_url, changeInClass
+from search_google_for_lm_songs import generate_lm_urls
 
 app = Flask(__name__)
 list_of_song_names = []
@@ -17,8 +18,15 @@ def index():
         return render_template('index.html' , name = '', list_of_song_names = list_of_song_names)
     elif request.method == 'POST':
         name = request.form.get('song')
-        # print(name)
+
         list_of_song_names, result_dictionary = generate_az_url(name)
+
+        if bool(list_of_song_names) == False:
+            hindi_song_result = generate_lm_urls(name)
+
+            print('-----------')
+            print(hindi_song_result)
+            print ('-----------')
 
         return render_template('index.html', name = name, list_of_song_names = list_of_song_names )
 
@@ -30,7 +38,7 @@ def showLyrics():
     elif request.method == 'POST':
         list_of_song_names = []
         key = request.form['songname']
-        print('key: ',key)
+        # print('key: ',key)
         link_value = result_dictionary[key]
         print(link_value)
         # print (link_value)
