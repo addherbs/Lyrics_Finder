@@ -5,8 +5,8 @@ prefix = 'www.lyricsmint.com'
 name = 'wajah tum ho'
 suffix = 'lyrics'
 
-def generate_lm_urls():
-    split = name.split(' ')
+def generate_lm_urls(SongNameInput):
+    split = SongNameInput.split(' ')
     # print(split)
     final_name = prefix + '+'
     for word in split:
@@ -14,26 +14,34 @@ def generate_lm_urls():
     # final_name = final_name
     final_name = final_name + suffix
     final_google_url = url + final_name
-    # print(final_google_url)
-    return final_google_url
-final_url = generate_lm_urls()
 
-def from_google(final_url):
+    # Calling to generate google search links
+    dictionary = from_google(final_google_url)
+    return dictionary
+
+
+
+def from_google(final_google_url):
     links = []
     count = 0
-    print(final_url)
-    for link in search(final_url):
+    print(final_google_url)
+    for link in search(final_google_url):
         # print(link)
         count +=1
         links.append(link)
         if count == 5:
             break
-    # print(links)
-    return links
-links = from_google(final_url)
 
-print(links)
+    print(links)
 
+    # Calling to generate dictionary
+    dictionary = generate_song_names_from_url (links)
+
+
+    return dictionary
+
+
+# links = from_google(final_url)
 
 def generate_song_names_from_url(links):
     dict = {}
@@ -42,7 +50,7 @@ def generate_song_names_from_url(links):
         if str(split[2]) == prefix:
             if len(split) == 6:
                 name = str(split[5].split('.html')[0])
-                # print(name)
+
                 name_split = name.split('-')
                 final_name=''
                 for word in name_split:
@@ -52,14 +60,11 @@ def generate_song_names_from_url(links):
                 print(link)
                 dict[final_name] = link
 
-            # print(split[2])
-            # print(split[2])
-                # print (split[5])
-    # print(dict)
     for key,value in dict.items():
         print('key: ' , key , 'value: ',value)
-        # print(value)
         print('-----------')
 
+    return dict
 
-generate_song_names_from_url(links)
+# generate_song_names_from_url(links)
+dic = generate_lm_urls('wajah tum ho')
