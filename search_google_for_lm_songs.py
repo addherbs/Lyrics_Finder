@@ -67,4 +67,4 @@ def generate_song_names_from_url(links):
     return dict
 
 # generate_song_names_from_url(links)
-dic = generate_lm_urls('wajah tum ho')
+# dic = generate_lm_urls('wajah tum ho')
