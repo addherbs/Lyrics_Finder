@@ -24,9 +24,7 @@ def index():
         if bool(list_of_song_names) == False:
             hindi_song_result = generate_lm_urls(name)
 
-            print('-----------')
             print(hindi_song_result)
-            print ('-----------')
 
         return render_template('index.html', name = name, list_of_song_names = list_of_song_names )
 
