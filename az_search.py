@@ -19,7 +19,6 @@ def generate_az_url(song_name):
     list_of_song_names, result_dictionary = changeInClass (generated_url)
     return list_of_song_names, result_dictionary
 
-# final_url = generate_az_url()
 
 def changeInClass(final_url):
     source = urllib.request.urlopen (final_url).read ()
@@ -41,9 +40,6 @@ def changeInClass(final_url):
                 artist_name = names[1]
                 song_name = names[0]
             entire_song_name = str (song_name + ' By Artist ' + artist_name)
-            # print(each_row.find('a').get('href'))
-            # print('song ', names[0])
-            # print ('artist ', names[1])
             # print(entire_song_name , ' ' , link)
             result_dictionary[entire_song_name] = link
 
