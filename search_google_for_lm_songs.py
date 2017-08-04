@@ -7,11 +7,11 @@ suffix = 'lyrics'
 
 def generate_lm_urls(SongNameInput):
     split = SongNameInput.split(' ')
-    # print(split)
+
     final_name = prefix + '+'
     for word in split:
         final_name = final_name  + word + '+'
-    # final_name = final_name
+
     final_name = final_name + suffix
     final_google_url = url + final_name
 
