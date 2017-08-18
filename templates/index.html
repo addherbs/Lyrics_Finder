@@ -17,7 +17,15 @@
     Search Results Are:
 
     <table>
-        {% for names in list_of_song_names %}
+		{% if list_of_song_names == null 
+				
+				print('No songs found')
+		%}
+				
+		{% endif %}
+		
+		
+	{% for names in list_of_song_names %}
 
             <form action="/giveSongResult", method="POST" >
             <tr>
@@ -27,6 +35,8 @@
         {% endfor %}
 
     </table>
+	
+	Click a song name to go for the lyrics.
 
 </body>
 </html>

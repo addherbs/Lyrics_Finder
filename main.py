@@ -8,7 +8,7 @@ list_of_song_names = []
 result_dictionary = {}
 
 
-#Yo returned to file
+#Main directory root
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
