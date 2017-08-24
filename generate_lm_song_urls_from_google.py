@@ -8,7 +8,7 @@ name = 'wajah tum ho'
 suffix = 'lyrics'
 
 
-
+#This will generate lyricsmint urls
 def generate_lm_urls():
     split = name.split(' ')
     final_name = prefix + '+'
