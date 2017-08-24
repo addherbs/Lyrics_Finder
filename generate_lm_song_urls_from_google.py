@@ -24,6 +24,7 @@ def generate_lm_urls():
     return final_google_url
 final_url = generate_lm_urls()
 
+#This will get links from google api
 def from_google(final_url):
     links = []
     count = 0
