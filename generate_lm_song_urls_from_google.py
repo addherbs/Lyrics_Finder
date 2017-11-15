@@ -16,11 +16,8 @@ def generate_lm_urls():
         final_name = final_name  + word + '+'
 
 
-
-
     final_name = final_name + suffix
     final_google_url = url + final_name
-    # print(final_google_url)
     return final_google_url
 final_url = generate_lm_urls()
 
@@ -31,11 +28,10 @@ def from_google(final_url):
     print(final_url)
     for link in search(final_url):
         # print(link)
-        count +=1
+        count = count + 1
         links.append(link)
-        if count == 5:
+        if (count == 5):
             break
-    # print(links)
     return links
 links = from_google(final_url)
 
